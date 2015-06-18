@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Library</title>
+
+  </head>
+  <body>
+
+    <p id='test'>test</p>
+
+
+
+
+
+
+
+
+    <script>
+      (function(id) {
+    return $Dojo = function(id) {
+      var element = document.getElementById(id);
+      element.click = function(callback) {
+        element.onclick = callback;
+      }
+      element.hover = function(callback,callback2) {
+        element.onmouseover = callback;
+        element.onmouseleave = callback2;
+      }
+      return element;
+    }
+
+  })();
+
+  // $Dojo("test").click(function() { console.log("The button was clicked!") })
+$Dojo("test").hover(function() { console.log("You hovered over the tag!") },function() { console.log("You hovered off of the tag!") })
+
+    </script>
+  </body>
+</html>
